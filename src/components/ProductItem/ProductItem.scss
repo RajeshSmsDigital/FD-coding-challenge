@@ -1,0 +1,44 @@
+.Product-cart {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30px;
+  background-color: #f2f2f2;
+  color: deepskyblue;
+  margin: 10px;
+}
+
+.Product-image{
+  padding: 1rem 0 0 0;
+  height: 80%;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  overflow: hidden;
+  @media screen and (max-width: 768px) and (min-width: 500px) {
+    width: 25rem;
+  }
+}
+
+.Product-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+.Product-price {
+  padding: 1rem;
+  font-family: "Helvetica Neue", monospace;
+  justify-content: space-between;
+  color: black;
+  .brand-name {
+    font-size: 20px;
+  }
+  @media screen and (max-width: 1300px) {
+    font-size: 1rem;
+    padding: 0.5rem 0 0.5rem 0;
+  }
+}
