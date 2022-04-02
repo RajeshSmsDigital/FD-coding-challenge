@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './DropDown.scss'
 
-const data = [{ id: 0, label: "XS" },
-{ id: 1, label: "S" },
-{ id: 2, label: "M" },
-{ id: 3, label: "L" },
-{ id: 4, label: "XL" },
-{ id: 5, label: "XXL" },
-{ id: 6, label: "XXXL" },
-{ id: 7, label: "4XL" },
-{ id: 8, label: "5XL" }]
+const data = [{ id: 0, label: "Ascending" },{ id: 1, label: "Descending" }]
 
 const Dropdown = (props) => {
     const [isOpen, setOpen] = useState(false);
@@ -21,6 +13,7 @@ const Dropdown = (props) => {
     const handleItemClick = (id) => {
         console.log(id)
         selectedItem == id ? setSelectedItem(null) : setSelectedItem(id);
+        props.sortedData(id);
     }
 
     return (
