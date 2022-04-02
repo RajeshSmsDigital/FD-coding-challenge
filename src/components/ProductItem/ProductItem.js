@@ -13,6 +13,13 @@ const ProductItem = ({ product }) => {
                 <div className='Product-price'>
                     <div className='brand-name'>{product.brand}</div>
                     <div>{product.description}</div>
+                    Available Sizes
+                    <div  className='available-size'>
+                        
+                        {product.sizes.map((size) => (
+                            <div> {size}</div>
+                        ))}
+                    </div>
                     <div><text>€</text>{product.priceO}</div>
                 </div>
             </div>

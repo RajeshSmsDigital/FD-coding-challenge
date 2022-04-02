@@ -2,10 +2,13 @@ import "./ProductList.scss";
 import React, { useEffect, useState } from "react";
 import { productsWrapper } from "../../api/ProductsService";
 import ProductItem from '../ProductItem/ProductItem';
+import Dropdown from '../DropDown/DropDown'
 import Loader from "../Loader/Loader";
+import MultiSelectDropdown from "../MultiSelectDropdown/MultiSelectDropdown";
 
 const ProductList = () => {
     const [productListData, setData] = useState([]);
+
     const loadBacklogOrders = async () => {
         try {
             const res = await productsWrapper.get();
@@ -18,6 +21,16 @@ const ProductList = () => {
         }
     };
 
+    const setSelectedSize = (selectedSize) => {
+        console.log(selectedSize)
+        // setFilteredData(filteredData);
+      };
+
+      const setSelectedPrice = (selectedSize) => {
+        console.log(selectedSize)
+        // setFilteredData(filteredData);
+      };
+
     useEffect(() => {
         loadBacklogOrders();
     }, []);
@@ -25,8 +38,8 @@ const ProductList = () => {
     return (
         <div className="product-list">
             <div className="filters">
-                <div> Size</div>
-                <div> Price</div>
+                <MultiSelectDropdown title="Size" selectedData={setSelectedSize}/>
+                <MultiSelectDropdown title="Price"selectedData={setSelectedPrice}/>
             </div>
             <div className="products">
                 {productListData.length !== 0
@@ -35,7 +48,6 @@ const ProductList = () => {
                             key={product.id}
                             product={product}
                         />
-
                     ))
                     : <Loader />}
             </div>
