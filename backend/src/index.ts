@@ -5,15 +5,18 @@ const cors = require('@koa/cors');
 import * as logger from "koa-logger";
 import * as json from "koa-json";
 import { getProducts } from "./api/productsApi";
+import { getStatistics } from "./api/statistics";
 
 const app = new Koa();
 const router = new Router();
 
-
-
 router.get("/productList", async (ctx, next) => {
   ctx.body = await getProducts();
+  await next();
+});
 
+router.get("/statistics", async (ctx, next) => {
+  ctx.body = await getStatistics();
   await next();
 });
 
