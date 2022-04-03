@@ -7,7 +7,7 @@ First download or clone the repository
 ## Step 1: Add required things
 
 - Latest Node version of v16
-- Typescript
+- Typescript ( npm install typescript  )
 
 ## Step 2:  Run Frontend
 
