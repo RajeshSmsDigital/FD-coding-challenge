@@ -5,6 +5,7 @@ export const productsWrapper = {
 };
 
 async function get() {
-  const response = await axios.get("https://s3-eu-west-1.amazonaws.com/fid-recruiting/fid-task-4-ffront-products.json");
+  const response = await axios.get("http://localhost:8000/productList");
+  console.log(response)
   return response;
 }
