@@ -1,12 +1,12 @@
 # FD-coding-challenge
-Coding challenge for FD
+Coding challenge for Fashion Digital
 
 ## Steps to run this project
-first download or clone the repository
+First download or clone the repository
 
 ## Step 1: Add required things
 
-- latest Node version of v16
+- Latest Node version of v16
 - Typescript
 
 ## Step 2:  Run Frontend
@@ -24,6 +24,7 @@ first download or clone the repository
 **SCREENSHOTS:**
 
 Landing Page:
+
 <img width="948" alt="tes1" src="https://user-images.githubusercontent.com/50231871/161445629-a99d31a6-0358-4ef8-8429-215dd9b78492.PNG">
 
 ---
