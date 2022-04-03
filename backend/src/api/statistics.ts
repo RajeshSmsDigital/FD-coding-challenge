@@ -68,7 +68,7 @@ function thirdLogic(data) {
             price = price + entry.price;
             entrylength = entrylength + 1;
         }
-        brandsWithAvgpPice.push({ brands: item, avgPrice: price / entrylength });
+        brandsWithAvgpPice.push({ brand: item, avgPrice: price / entrylength });
     }
 
     // sort list of brands with avg price and take fist value
@@ -77,7 +77,7 @@ function thirdLogic(data) {
         return a.avgPrice - b.avgPrice;
     });
     const lowestAvgPrice = brandsWithAvgpPice[0];
-    return lowestAvgPrice
+    return [lowestAvgPrice]
 }
 export async function getStatistics() {
     const productList = await getProducts();

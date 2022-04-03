@@ -3,15 +3,15 @@
   grid-template:
     "filters"
     "products";
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 41px 1fr;
   @media screen and (max-width: 1300px) {
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 41px 1fr;
   }
   @media screen and (max-width: 768px) {
-    grid-template-rows: 80px 1fr;
+    grid-template-rows: 41px 1fr;
   }
   @media screen and (max-width: 600px) {
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 41px 1fr;
   }
 }
 

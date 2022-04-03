@@ -11,9 +11,9 @@ const Dropdown = (props) => {
     const toggleDropdown = () => setOpen(!isOpen);
 
     const handleItemClick = (id) => {
-        console.log(id)
         selectedItem == id ? setSelectedItem(null) : setSelectedItem(id);
         props.sortedData(id);
+        setOpen(false)
     }
 
     return (
@@ -25,7 +25,6 @@ const Dropdown = (props) => {
             <div className={`dropdown-body ${!isOpen ? 'collapsed' : 'open'}`}>
                 {items.map(item => (
                     <div className={`dropdown-item ${item.id == selectedItem ? 'selected' : ''}`} onClick={e => handleItemClick(e.target.id)} id={item.id}>
-                        {/* <span className={`dropdown-item-dot ${item.id == selectedItem && 'selected'}`}></span> */}
                         {item.label}
                     </div>
                 ))}

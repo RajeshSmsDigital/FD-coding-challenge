@@ -1,6 +1,6 @@
 import "./ProductList.scss";
 import React, { useEffect, useState } from "react";
-import { productsWrapper } from "../../api/ProductsService";
+import { productsWrapper } from "../../api/DataService";
 import ProductItem from '../ProductItem/ProductItem';
 import Dropdown from '../DropDown/DropDown'
 import Loader from "../Loader/Loader";
@@ -14,9 +14,9 @@ const ProductList = () => {
     const [sortValue, setSortedValue] = useState();
 
 
-    const loadBacklogOrders = async () => {
+    const loadProducts = async () => {
         try {
-            const res = await productsWrapper.get();
+            const res = await productsWrapper.getProductList();
             console.log(res);
             if (res) {
                 setData(res.data)
@@ -92,7 +92,7 @@ const ProductList = () => {
     }
 
     useEffect(() => {
-        loadBacklogOrders();
+        loadProducts();
     }, []);
 
     useEffect(() => {
