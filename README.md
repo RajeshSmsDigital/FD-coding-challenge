@@ -28,10 +28,16 @@ Landing Page:
 
 ---
 Diffrent view:
+
+
+
 <img width="468" alt="tes2" src="https://user-images.githubusercontent.com/50231871/161445654-ecee87e6-48bc-4b4d-8f29-cf5127446739.PNG">
 
 ------
 mobile view:
+
+
+
 <img width="190" alt="tes5" src="https://user-images.githubusercontent.com/50231871/161445672-d37c51a6-c4a9-4060-924d-36ad343b1d07.PNG">
 
 
