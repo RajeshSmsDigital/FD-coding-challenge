@@ -1,0 +1,20 @@
+.stat-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 30px;
+  text-align: left;
+}
+
+.stat-label {
+  font-size: 20px;
+  font-family: "Helvetica Neue", monospace;
+  justify-content: center;
+  color:cornflowerblue;
+}
+
+.stat-value{
+    font-size: 20px;
+    font-family: "Helvetica Neue", monospace;
+    justify-content: space-between;
+    color:rgb(56, 68, 90);
+}
