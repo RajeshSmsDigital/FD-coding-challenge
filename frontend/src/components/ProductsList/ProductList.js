@@ -17,7 +17,6 @@ const ProductList = () => {
     const loadProducts = async () => {
         try {
             const res = await productsWrapper.getProductList();
-            console.log(res);
             if (res) {
                 setData(res.data)
                 setFirstProduct(res.data)
@@ -75,7 +74,6 @@ const ProductList = () => {
     }
 
     const sorting = (sortValue, products) => {
-        console.log(sortValue)
         const sortByPrice = [...products];
         let newData
         if (sortValue == 0) {
@@ -113,7 +111,7 @@ const ProductList = () => {
                             product={product}
                         />
                     ))
-                    : <div>No Data</div>}
+                    : <div className="no-data">No Data Found</div>}
             </div>
         </div>
     );

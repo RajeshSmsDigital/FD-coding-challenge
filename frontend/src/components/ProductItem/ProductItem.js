@@ -14,13 +14,13 @@ const ProductItem = ({ product }) => {
                     <div className='brand-name'>{product.brand}</div>
                     <div>{product.description}</div>
                     Available Sizes
-                    <div  className='available-size'>
-                        
-                        {product.sizes.map((size) => (
-                            <div> {size}</div>
+                    <div className='available-size'>
+
+                        {product.sizes.map((size, index) => (
+                            <div key={index}> {size}</div>
                         ))}
                     </div>
-                    <div><text>€</text>{product.priceO}</div>
+                    <div>€{product.priceO}</div>
                 </div>
             </div>
         </div>

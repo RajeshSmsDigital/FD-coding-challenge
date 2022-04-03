@@ -23,8 +23,8 @@ const Dropdown = (props) => {
                 <i className={`fa fa-chevron-right icon ${isOpen && "open"}`}></i>
             </div>
             <div className={`dropdown-body ${!isOpen ? 'collapsed' : 'open'}`}>
-                {items.map(item => (
-                    <div className={`dropdown-item ${item.id == selectedItem ? 'selected' : ''}`} onClick={e => handleItemClick(e.target.id)} id={item.id}>
+                {items.map((item, index) => (
+                    <div key={index} className={`dropdown-item ${item.id == selectedItem ? 'selected' : ''}`} onClick={e => handleItemClick(e.target.id)} id={item.id}>
                         {item.label}
                     </div>
                 ))}
