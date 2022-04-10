@@ -14,12 +14,14 @@ First download or clone the repository
 - #`cd frontend`
 - #`npm install`
 - #`npm start`
+- FE runs on http://localhost:3000/
 
 ## Step 3:  Run Backend
 - #`cd backend`
 - #`npm install`
 - #`tsc`
 - #`node .`
+- backend runs on http://localhost:8000/productList and http://localhost:8000/statistics
 
 **SCREENSHOTS:**
 
