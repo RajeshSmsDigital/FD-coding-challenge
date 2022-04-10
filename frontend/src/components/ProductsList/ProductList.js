@@ -1,9 +1,8 @@
 import "./ProductList.scss";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { productsWrapper } from "../../api/DataService";
 import ProductItem from '../ProductItem/ProductItem';
 import Dropdown from '../DropDown/DropDown'
-import Loader from "../Loader/Loader";
 import MultiSelectDropdown from "../MultiSelectDropdown/MultiSelectDropdown";
 import sizeData from '../../assets/json/size.json';
 
@@ -43,7 +42,7 @@ const ProductList = () => {
         }
     }
 
-    const filterAndSort = () => {
+    const filterAndSort = useCallback(() => {
         if (filterValue.length > 0 && sortValue) {
             const filteredResult = filtering(filterValue, defaultProductList)
             const sortedValue = sorting(sortValue, filteredResult)
@@ -57,14 +56,14 @@ const ProductList = () => {
         } else {
             setData(defaultProductList)
         }
-    }
+    }, [filterValue, sortValue, defaultProductList])
 
     const filtering = (filterValue, products) => {
-        const filterBySizes = [];
+        const filterBySizes = filterValue.reduce((obj, item) => {
+            obj.push(item.label);
+            return obj
+        }, []);
 
-        filterValue.forEach(element => {
-            filterBySizes.push(element.label);
-        });
         const filterByTagSet = new Set(filterBySizes);
 
         const result = products.filter((product) =>
@@ -76,12 +75,12 @@ const ProductList = () => {
     const sorting = (sortValue, products) => {
         const sortByPrice = [...products];
         let newData
-        if (sortValue == 0) {
+        if (sortValue === 1) {
             newData = sortByPrice.sort(function (a, b) {
                 return parseFloat(a.priceO) - parseFloat(b.priceO);
             });
         }
-        if (sortValue == 1) {
+        if (sortValue === 2) {
             newData = sortByPrice.sort(function (a, b) {
                 return parseFloat(b.priceO) - parseFloat(a.priceO);
             });
@@ -95,7 +94,7 @@ const ProductList = () => {
 
     useEffect(() => {
         filterAndSort();
-    }, [filterValue, sortValue]);
+    }, [filterValue, sortValue, filterAndSort]);
 
     return (
         <div className="product-list">

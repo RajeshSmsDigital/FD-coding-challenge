@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { default as ReactSelect } from "react-select";
 import { components } from "react-select";
 
@@ -20,10 +20,10 @@ const Option = (props) => {
 
 const MultiSelectDropdown = (props) => {
     const [selectedOption, setSelectedOption] = useState(null);
-
-    useEffect(() => {
-        props.selectedData(selectedOption);
-    }, [selectedOption]);
+    const setSelectedtedOptionhandler = (option) => {
+        setSelectedOption(option)
+        props.selectedData(option);
+    }
 
     return (
         <span
@@ -41,7 +41,7 @@ const MultiSelectDropdown = (props) => {
                     Option
                 }}
                 defaultValue={selectedOption}
-                onChange={setSelectedOption}
+                onChange={setSelectedtedOptionhandler}
                 placeholder={props.title}
                 allowSelectAll={true}
             />

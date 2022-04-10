@@ -4,7 +4,7 @@ import "./ProductItem.scss";
 const ProductItem = ({ product }) => {
     return (
         <div className='Product-cart'>
-            <img className='Product-image'
+            <img className='Product-image' alt="products"
                 src={product.images[0]}
                 onMouseOver={e => (e.currentTarget.src = product.images[1])}
                 onMouseOut={e => (e.currentTarget.src = product.images[0])}

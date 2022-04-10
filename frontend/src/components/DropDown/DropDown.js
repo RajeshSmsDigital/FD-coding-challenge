@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './DropDown.scss'
 
-const data = [{ id: 0, label: "Ascending" },{ id: 1, label: "Descending" }]
+const data = [{ id: 1, label: "Ascending" },{ id: 2, label: "Descending" }]
 
 const Dropdown = (props) => {
     const [isOpen, setOpen] = useState(false);
-    const [items, setItem] = useState(data);
-    const [selectedItem, setSelectedItem] = useState(null);
+    const [selectedItem, setSelectedItem] = useState();
 
     const toggleDropdown = () => setOpen(!isOpen);
 
     const handleItemClick = (id) => {
-        selectedItem == id ? setSelectedItem(null) : setSelectedItem(id);
+        setSelectedItem(id)
         props.sortedData(id);
         setOpen(false)
     }
@@ -19,12 +18,11 @@ const Dropdown = (props) => {
     return (
         <div className='dropdown'>
             <div className='dropdown-header' onClick={toggleDropdown}>
-                {selectedItem ? items.find(item => item.id == selectedItem).label : props.title}
-                <i className={`fa fa-chevron-right icon ${isOpen && "open"}`}></i>
+                {selectedItem ? data.find(item => item.id === selectedItem).label : props.title}
             </div>
             <div className={`dropdown-body ${!isOpen ? 'collapsed' : 'open'}`}>
-                {items.map((item, index) => (
-                    <div key={index} className={`dropdown-item ${item.id == selectedItem ? 'selected' : ''}`} onClick={e => handleItemClick(e.target.id)} id={item.id}>
+                {data.map((item, index) => (
+                    <div key={index} className={`dropdown-item ${item.id === selectedItem ? 'selected' : ''}`} onClick={() => handleItemClick(item.id)}>
                         {item.label}
                     </div>
                 ))}
